@@ -38,7 +38,6 @@
              AddEquity("SPY", Resolution.Second);		
              		
              REngine engine = REngine.GetInstance();		
-             engine.Evaluate("print('This is from R command.')");		
              // .NET Framework array to R vector.		
              NumericVector group1 = engine.CreateNumericVector(new double[] { 30.02, 29.99, 30.11, 29.97, 30.01, 29.99 });		
              engine.SetSymbol("group1", group1);		
@@ -49,6 +48,7 @@
              double p = testResult["p.value"].AsNumeric().First();		
              // you should always dispose of the REngine properly.		
              // After disposing of the engine, you cannot reinitialize nor reuse it		
+             Debug("The p value is: "+p);
              engine.Dispose();		
              		
          }		
